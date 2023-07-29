@@ -15,6 +15,7 @@
   ansible.posix.sysctl:
     name: "{{ item.name }}"
     value: "{{ item.value }}"
+    sysctl_file: "{{ item.file | default(omit) }}"
     sysctl_set: "{{ sysctl_set }}"
     state: present
     reload: "{{ sysctl_reload }}"
